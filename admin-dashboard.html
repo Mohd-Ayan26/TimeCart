@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ng.jpg" type="image/x-icon"> 
+    <title>TimeCart - Admin Dashboard</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div id="app-container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <img src="ng.jpg" alt="Time Express">
+                    <span>TimeCart</span>
+                </div>
+                <div class="nav-links">
+                    <a href="home.html" >Home</a>
+                    <a href="repair-services.html" >Repair Services</a>
+                    <a href="track.html">Track Order</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="about.html">About</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message">
+            Product added successfully!
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="admin.webp" alt="Time Express">
+                <h2>Admin Dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-tab="dashboard">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </button>
+                <button class="nav-item" data-tab="products">
+                    <i class="fas fa-box"></i> Products
+                </button>
+                <button class="nav-item" data-tab="orders">
+                    <i class="fas fa-shopping-cart"></i> Orders
+                </button>
+                <button id="logoutBtn" class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard -->
+            <section id="dashboard" class="tab-content active">
+                <div class="dashboard-header">
+                    <h1>Dashboard Overview</h1>
+                    <div class="date-filter">
+                        <input type="date" id="startDate">
+                        <input type="date" id="endDate">
+                        <button class="filter-btn">Apply Filter</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Orders</h3>
+                            <p id="totalOrders">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Sales</h3>
+                            <p id="totalSales">₹0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Products</h3>
+                            <p id="totalProducts">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products -->
+            <section id="products" class="tab-content">
+                <div class="section-header">
+                    <h1>Product Management</h1>
+                    <button class="add-btn" onclick="openProductModal()">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Visibility</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Orders -->
+            <section id="orders" class="tab-content">
+                <div class="section-header">
+                    <h1>Order Management</h1>
+                    <div class="filters">
+                        <select id="orderStatusFilter">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <input type="text" placeholder="Search orders..." id="orderSearch">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Products</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <h2>Add/Edit Product</h2>
+            <form id="productForm">
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="category" required>
+                        <option value="luxury">Luxury</option>
+                        <option value="smart">Smart Watch</option>
+                        <option value="chronograph">Chronograph</option>
+                        <option value="classic">Classic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Brand</label>
+                    <input type="text" name="brand" required>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input type="number" name="stock" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="url" name="image" required>
+                </div>
+                <div class="form-group">
+                    <label>Features (comma-separated)</label>
+                    <input type="text" name="features" placeholder="e.g., Water Resistant, Chronograph, GPS">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="visible" checked>
+                        Visible on Store
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="closeProductModal()" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="productDetailsModal" class="modal">
+        <div class="modal-content">
+            <h2>Product Details</h2>
+            <div id="productDetails"></div>
+            <div class="form-actions">
+                <button onclick="closeProductDetailsModal()" class="cancel-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content">
+            <h2>Order Details</h2>
+            <div id="orderDetails"></div>
+            <div class="form-actions">
+                <button onclick="closeOrderDetailsModal()" class="cancel-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="admin-dashboard.js"></script>
+</body>
+</html>

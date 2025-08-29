@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../ng.jpg" type="image/x-icon"> 
+    <title>TimeCart - Chronograph Watches</title>
+    <link rel="stylesheet" href="chronograph.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="../ng.jpg" alt="Time Express">
+            <span>TimeCart</span>
+        </div>
+        
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links">
+            <a href="../home.html">Home</a>
+            <a href="../repair-services.html" >Repair Services</a>
+            <a href="../track.html">Track Order</a>
+            <a href="../shop.html" class="active">Shop</a>
+            <a href="../about.html">About</a>
+        </div>
+
+        <!-- Cart and Mobile Menu (Always Visible) -->
+        <div class="nav-right">
+            <div class="nav-icons">
+                <button id="cartBtn" class="icon-btn">
+                    <a href="../cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="collection-header">
+        <div class="header-content" data-aos="fade-up">
+            <h1>Chronograph Collection</h1>
+            <p>Precision timing meets elegant design</p>
+        </div>
+    </header>
+    <main class="collection-main">
+        <!-- Mobile Filter Toggle Button -->
+        <button class="mobile-filter-toggle" aria-label="Toggle filters" aria-expanded="false">
+            <i class="fas fa-filter"></i>
+            <span>Filters</span>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+        </button>
+
+        <div class="filters" data-aos="fade-right" aria-label="Product filters">
+            <div class="filter-group">
+                <h3>Price Range</h3>
+                <div class="price-range">
+                    <div class="price-range-container">
+                        <div class="price-range-track"></div>
+                        <div class="price-range-progress" id="price-progress"></div>
+                        <input type="range" id="price-min" class="price-range-slider" min="0" max="1000000" value="0" aria-label="Minimum price">
+                        <input type="range" id="price-max" class="price-range-slider" min="0" max="1000000" value="1000000" aria-label="Maximum price">
+                    </div>
+                    <div class="price-inputs">
+                        <div class="price-input-group">
+                            <label for="minPriceInput">Min</label>
+                            <input type="number" id="minPriceInput" placeholder="Min">
+                        </div>
+                        <div class="price-input-group">
+                            <label for="maxPriceInput">Max</label>
+                            <input type="number" id="maxPriceInput" placeholder="Max">
+                        </div>
+                    </div>
+                    <div class="price-display" aria-live="polite">₹0 - ₹10,00,000</div>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h3>Brand</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="seiko"> Seiko</label>
+                    <label><input type="checkbox" value="citizen"> Citizen</label>
+                    <label><input type="checkbox" value="timex"> Timex</label>
+                    <label><input type="checkbox" value="fossil"> Fossil</label>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h3>Features</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="tachymeter"> Tachymeter</label>
+                    <label><input type="checkbox" value="waterproof"> Waterproof</label>
+                    <label><input type="checkbox" value="luminous"> Luminous</label>
+                    <label><input type="checkbox" value="date"> Date Display</label>
+                </div>
+            </div>
+            <button class="apply-filters">Apply Filters</button>
+        </div>
+
+        <div class="products-container">
+            <div class="sort-bar" data-aos="fade-up">
+                <select id="sortSelect">
+                    <option value="featured">Featured</option>
+                    <option value="priceAsc">Price: Low to High</option>
+                    <option value="priceDesc">Price: High to Low</option>
+                    <option value="newest">Newest First</option>
+                </select>
+                <div class="view-options">
+                    <button class="grid-view active"><i class="fas fa-th"></i></button>
+                    <button class="list-view"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="product-details">
+                <!-- Product details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 7300983157</p>
+                <p><i class="fas fa-envelope"></i>ayansiddiquiktmo@gmail </p>
+                <p><i class="fas fa-map-marker-alt"></i>Himalaya Time Center-Khatima</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="../repair-services.html">Repair Services</a>
+                <a href="../storevisit.html">Store Visit</a>
+                <a href="../track.html">Track Order</a>
+                <a href="../shop.html">Shop</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TimeCart. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="chronograph.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ng.jpg" type="image/x-icon">
+    <title>TimeCart - Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-image">
+            <img src="log2.jpg" alt="Watch Repair">
+        </div>
+        
+        <div class="auth-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="login">Sign In</button>
+                <button class="tab-btn" data-tab="register">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <h2><i class="fas fa-sign-in-alt"></i> Sign In</h2>
+                <div class="form-group">
+                    <label for="loginEmail"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="loginEmail" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" id="loginPassword" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="auth-btn">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                <div class="forgot-password">
+                    <a href="#" id="forgotPassword">Forgot Password?</a>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form">
+                <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+                <div class="form-group">
+                    <label for="registerName"><i class="fas fa-user"></i> Full Name:</label>
+                    <input type="text" id="registerName" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="registerEmail" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" id="registerPassword" autocomplete="new-password" required minlength="6">
+                    <small class="password-hint">Password must be at least 6 characters long</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword"><i class="fas fa-lock"></i> Confirm Password:</label>
+                    <input type="password" id="confirmPassword" autocomplete="new-password" required minlength="6">
+                </div>
+                <button type="submit" class="auth-btn">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+            </form>
+
+            <!-- Reset Password Form -->
+            <form id="resetPasswordForm" class="auth-form">
+                <h2><i class="fas fa-key"></i> Reset Password</h2>
+                <p class="reset-description">Enter your email address and we'll send you a link to reset your password.</p>
+                <div class="form-group">
+                    <label for="resetEmail"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="resetEmail" autocomplete="email" required>
+                </div>
+                <button type="submit" class="auth-btn">
+                    <i class="fas fa-paper-plane"></i> Send Reset Email
+                </button>
+                <div class="back-to-login">
+                    <a href="#" id="backToLogin"><i class="fas fa-arrow-left"></i> Back to Login</a>
+                </div>
+            </form>
+
+            <!-- Google Sign In -->
+            <div class="social-auth">
+                <p>Or continue with</p>
+                <button id="googleSignIn" class="google-btn">
+                    <img src="google.webp" alt="Google">
+                    Sign in with Google
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script type="module" src="login.js"></script>
+</body>
+</html>

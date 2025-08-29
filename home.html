@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="ng.jpg" type="image/x-icon"> 
+  <title>TimeCart</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+  <div id="app-container">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="ng.jpg" alt="Time Express" />
+        <span>TimeCart</span>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <div class="nav-links">
+        <a href="home.html" class="active">Home</a>
+        <a href="repair-services.html">Repair Services</a>
+        <a href="track.html">Track Order</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <!-- Admin link with id and hidden by default -->
+        <a href="admin-dashboard.html" id="adminLink" style="display: none;">Admin</a>
+      </div>
+
+      <!-- Cart and Profile -->
+      <div class="nav-right">
+        <div class="nav-icons">
+          <button id="cartBtn" class="icon-btn">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <span class="cart-count">0</span>
+          </button>
+          <div class="profile-dropdown">
+            <button class="profile-btn" id="profileBtn">
+              <img src="https://ui-avatars.com/api/?name=User" alt="Profile" id="profileImage" />
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content" id="profileDropdown">
+              <div class="user-info">
+                <img src="https://ui-avatars.com/api/?name=User" alt="Profile" id="dropdownProfileImage" />
+                <div class="user-name" id="userName">User Name</div>
+                <div class="user-email" id="userEmail">user@example.com</div>
+              </div>
+              <a href="#profile"><i class="fas fa-user"></i> My Profile</a>
+              <a href="track.html"><i class="fas fa-clock-rotate-left"></i> Order History</a>
+              <button id="logoutBtn" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </button>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+     <!-- Hero Section -->
+     <section class="hero">
+      <div class="hero-content">
+          <h1>Expert Watch Care & Premium Timepieces</h1>
+          <p>Professional repair services and exclusive collection of luxury watches</p>
+          <div class="hero-buttons">
+              <a href="repair-services.html" class="btn primary">
+                  <i class="fas fa-tools"></i> Schedule Repair
+              </a>
+              <a href="shop.html" class="btn secondary">
+                  <i class="fas fa-shopping-bag"></i> Browse Collection
+              </a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+      <h2>Our Services</h2>
+      <div class="service-cards">
+          <div class="service-card">
+              <i class="fas fa-tools"></i>
+              <h3>Watch Repair</h3>
+              <p>Professional repair and maintenance services</p>
+              <a href="repair-services.html" class="btn-link">Schedule Now</a>
+          </div>
+          <div class="service-card">
+              <i class="fas fa-store"></i>
+              <h3>Store Visit</h3>
+              <p>Book an appointment at our service center</p>
+              <a href="storevisit.html" class="btn-link">Book Visit</a>
+          </div>
+          <div class="service-card">
+              <i class="fas fa-shipping-fast"></i>
+              <h3>Free Pickup</h3>
+              <p>Convenient doorstep pickup service</p>
+              <a href="schedule.html" class="btn-link">Request Pickup</a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+      <div class="feature">
+          <i class="fas fa-clock"></i>
+          <h4>Quick Service</h4>
+          <p>Fast turnaround time</p>
+      </div>
+      <div class="feature">
+          <i class="fas fa-shield-alt"></i>
+          <h4>90 Days Warranty</h4>
+          <p>Guaranteed repairs</p>
+      </div>
+      <div class="feature">
+          <i class="fas fa-certificate"></i>
+          <h4>Certified Experts</h4>
+          <p>Professional technicians</p>
+      </div>
+      <div class="feature">
+          <i class="fas fa-hand-holding-usd"></i>
+          <h4>Best Price</h4>
+          <p>Competitive rates</p>
+      </div>
+  </section>
+
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+      <h2>Customer Reviews</h2>
+      <div class="testimonial-grid">
+          <div class="testimonial">
+              <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+              <p>"Excellent service! My vintage watch works like new again."</p>
+              <div class="author">- Rahul S.</div>
+          </div>
+          <div class="testimonial">
+              <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+              <p>"Professional staff and quick turnaround time. Highly recommended!"</p>
+              <div class="author">- Priya M.</div>
+          </div>
+          <div class="testimonial">
+              <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+              </div>
+              <p>"Great collection of watches and excellent repair service."</p>
+              <div class="author">- Amit K.</div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-phone"></i> +91 7300983157</p>
+            <p><i class="fas fa-envelope"></i> ayansiddiquiktmo@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Himalaya Time Center, Khatima</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="home.html">Home</a>
+            <a href="repair-services.html">Repair Service</a>
+            <a href="track.html">Track Order</a>
+            <a href="shop.html">Shop</a>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Time Express. All rights reserved.</p>
+    </div>
+</footer>
+</div>
+
+
+
+<!-- Loading Spinner -->
+<div id="loadingSpinner" class="loading-spinner">
+  <div class="spinner"></div>
+</div>
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="home.js"></script>
+</body>
+</html>

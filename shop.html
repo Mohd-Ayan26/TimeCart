@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ng.jpg" type="image/x-icon"> 
+    <title>TimeCart - Watch Collection</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="../ng.jpg" alt="Time Express">
+                <span>TimeCart</span>
+            </div>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="repair-services.html" >Repair Services</a>
+                <a href="track.html">Track Order</a>
+                <a href="shop.html" class="active">Shop</a>
+                <a href="about.html">About</a>
+            </div>
+    
+            <!-- Cart and Mobile Menu (Always Visible) -->
+            <div class="nav-right">
+                <div class="nav-icons">
+                    <button id="cartBtn" class="icon-btn">
+                        <a href="../cart.html"><i class="fas fa-shopping-cart"></i></a>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero Section with Swiper -->
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <!-- Luxury Watches Slide -->
+                <div class="swiper-slide hero-slide luxury-slide">
+                    <div class="hero-content">
+                        <h1>Luxury Watches</h1>
+                        <p>Discover timepieces that define excellence and sophistication</p>
+                        <a href="watchcollection/luxury.html">
+                            <button class="hero-btn">
+                                <i class="fas fa-gem"></i>
+                                Explore Luxury Collection
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Smart Watches Slide -->
+                <div class="swiper-slide hero-slide smart-slide">
+                    <div class="hero-content">
+                        <h1>Smart Watches</h1>
+                        <p>Technology meets elegance in perfect harmony</p>
+                        <a href="watchcollection/smart.html">
+                            <button class="hero-btn">
+                                <i class="fas fa-microchip"></i>
+                                View Smart Collection
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Classic Watches Slide -->
+                <div class="swiper-slide hero-slide classic-slide">
+                    <div class="hero-content">
+                        <h1>Classic Watches</h1>
+                        <p>Timeless elegance for every occasion and style</p>
+                        <a href="watchcollection/classic.html">
+                            <button class="hero-btn">
+                                <i class="fas fa-clock"></i>
+                                Browse Classic Collection
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Chronograph Watches Slide -->
+                <div class="swiper-slide hero-slide chronograph-slide">
+                    <div class="hero-content">
+                        <h1>Chronograph Watches</h1>
+                        <p>Precision timing with exceptional craftsmanship</p>
+                        <a href="watchcollection/chronograph.html">
+                            <button class="hero-btn">
+                                <i class="fas fa-stopwatch"></i>
+                                Discover Chronograph
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <h2 data-aos="fade-up">Browse Categories</h2>
+            <div class="category-grid">
+                <div class="category-card luxury" data-aos="fade-up">
+                    <div class="category-content">
+                        <h3>Luxury Watches</h3>
+                        <!-- <p>Premium timepieces from renowned brands</p> -->
+                        <a href="watchcollection/luxury.html" class="explore-btn">
+                            <span>Explore Collection</span> 
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card smart" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-content">
+                        <h3>Smart Watches</h3>
+                        <!-- <p>Advanced technology meets style</p> -->
+                        <a href="watchcollection/smart.html" class="explore-btn">
+                            <span>Explore Collection</span> 
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card chronograph" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-content">
+                        <h3>Chronograph</h3>
+                        <!-- <p>Precision timing and elegant design</p> -->
+                        <a href="watchcollection/chronograph.html" class="explore-btn">
+                            <span>Explore Collection</span> 
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="category-card classic" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-content">
+                        <h3>Classic Watches</h3>
+                        <!-- <p>Timeless designs for every occasion</p> -->
+                        <a href="watchcollection/classic.html" class="explore-btn">
+                            <span>Explore Collection</span> 
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> +91 7300983157</p>
+                    <p><i class="fas fa-envelope"></i> ayansiddiquiktmo@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Himalaya Time Center, Khatima</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="home.html">Home</a>
+                    <a href="repair-services.html">Repair Service</a>
+                    <a href="track.html">Track Order</a>
+                    <a href="shop.html">Shop</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Time Express. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>

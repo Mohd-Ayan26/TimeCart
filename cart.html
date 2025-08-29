@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ng.jpg" type="image/x-icon"> 
+    <title>TimeCart - Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="ng.jpg" alt="Time Express">
+            <span>Time Express</span>
+        </div>
+        
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="repair-services.html" class="active">Repair Services</a>
+            <a href="track.html">Track Order</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+        </div>
+
+        <!-- Cart and Mobile Menu (Always Visible) -->
+        <div class="nav-right">
+            <div class="nav-icons">
+                <button id="cartBtn" class="icon-btn">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="cart-main">
+        <div class="cart-container">
+            <div class="cart-header" data-aos="fade-up">
+                <h1><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
+                <p class="cart-subtitle">Review your selected timepieces</p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading your cart...</p>
+            </div>
+
+            <!-- Empty Cart State -->
+            <div id="emptyCart" class="empty-cart" style="display: none;">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2>Your cart is empty</h2>
+                <p>Discover our amazing collection of timepieces</p>
+                <a href="shop.html" class="continue-shopping-btn">
+                    <i class="fas fa-watch"></i> Continue Shopping
+                </a>
+            </div>
+
+            <!-- Cart Content -->
+            <div id="cartContent" class="cart-content" style="display: none;">
+                <div class="cart-items-section">
+                    <div class="cart-items-header">
+                        <h2>Cart Items (<span id="itemCount">0</span>)</h2>
+                        <button id="clearCartBtn" class="clear-cart-btn">
+                            <i class="fas fa-trash"></i> Clear Cart
+                        </button>
+                    </div>
+                    
+                    <div id="cartItems" class="cart-items">
+                        <!-- Cart items will be populated here -->
+                    </div>
+                </div>
+
+                <div class="cart-summary-section">
+                    <div class="cart-summary" data-aos="fade-left">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">₹0</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="shipping">Free</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Tax (18% GST):</span>
+                            <span id="tax">₹0</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="total">₹0</span>
+                        </div>
+
+                        <div class="cart-actions">
+                            <button id="checkoutBtn" class="checkout-btn">
+                                <i class="fas fa-credit-card"></i>
+                                Proceed to Checkout
+                            </button>
+                            
+                            <a href="shop.html" class="continue-shopping">
+                                <i class="fas fa-arrow-left"></i>
+                                Continue Shopping
+                            </a>
+                        </div>
+
+                        <div class="security-badges">
+                            <div class="security-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Checkout</span>
+                            </div>
+                            <div class="security-badge">
+                                <i class="fas fa-truck"></i>
+                                <span>Free Shipping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message">
+        <i class="fas fa-check-circle"></i>
+        <span>Cart updated successfully!</span>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Action</h3>
+            <p id="confirmMessage">Are you sure you want to proceed?</p>
+            <div class="modal-actions">
+                <button id="confirmCancel" class="cancel-btn">Cancel</button>
+                <button id="confirmOk" class="confirm-btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 7300983157</p>
+                <p><i class="fas fa-envelope"></i>ayansiddiquiktmo@gmail </p>
+                <p><i class="fas fa-map-marker-alt"></i>Himalaya Time Center-Khatima</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="../repair-services.html">Repair Services</a>
+                <a href="../storevisit.html">Store Visit</a>
+                <a href="../track.html">Track Order</a>
+                <a href="../shop.html">Shop</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TimeCart. All rights reserved.</p>
+        </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="cart.js"></script>
+</body>
+</html>

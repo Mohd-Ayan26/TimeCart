@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ng.jpg" type="image/x-icon"> 
+    <title>TimeCart - Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="ng.jpg" alt="Time Express">
+            <span>Time Express</span>
+        </div>
+        
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="repair-services.html" class="active">Repair Services</a>
+            <a href="track.html">Track Order</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+        </div>
+
+        <!-- Cart and Mobile Menu (Always Visible) -->
+        <div class="nav-right">
+            <div class="nav-icons">
+                <button id="cartBtn" class="icon-btn">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>n>
+    </nav>
+
+    <main class="checkout-main">
+        <div class="checkout-container">
+            <div class="checkout-header" data-aos="fade-up">
+                <h1><i class="fas fa-credit-card"></i> Secure Checkout</h1>
+                <p class="checkout-subtitle">Complete your order securely</p>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="progress-steps" data-aos="fade-up" data-aos-delay="100">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Shipping Address</div>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Payment Method</div>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Order Review</div>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Confirmation</div>
+                </div>
+            </div>
+
+            <div class="checkout-content">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <!-- Step 1: Shipping Address -->
+                    <div id="step1" class="checkout-step active">
+                        <div class="form-section">
+                            <h3><i class="fas fa-map-marker-alt"></i> Shipping Address</h3>
+                            
+                            <!-- Saved Addresses -->
+                            <div class="saved-addresses" id="savedAddresses">
+                                <!-- Saved addresses will be populated here -->
+                            </div>
+
+                            <!-- Add New Address Button -->
+                            <button type="button" class="add-new-address" id="addNewAddressBtn">
+                                <i class="fas fa-plus"></i> Add New Address
+                            </button>
+
+                            <!-- New Address Form -->
+                            <div id="newAddressForm" style="display: none;">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                    <div class="error-message">Please enter your full name</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                    <div class="error-message">Please enter a valid phone number</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">Address Line 1 *</label>
+                                    <input type="text" id="address" name="address" placeholder="House/Flat No., Building Name" required>
+                                    <div class="error-message">Please enter your address</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address2">Address Line 2</label>
+                                    <input type="text" id="address2" name="address2" placeholder="Area, Street, Sector, Village">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="city">City *</label>
+                                        <input type="text" id="city" name="city" required>
+                                        <div class="error-message">Please enter your city</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state">State *</label>
+                                        <select id="state" name="state" required>
+                                            <option value="">Select State</option>
+                                            <!-- States will be populated by JavaScript -->
+                                        </select>
+                                        <div class="error-message">Please select your state</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="pincode">PIN Code *</label>
+                                        <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+                                        <div class="error-message">Please enter a valid 6-digit PIN code</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="addressType">Address Type</label>
+                                        <select id="addressType" name="addressType">
+                                            <option value="home">Home</option>
+                                            <option value="office">Office</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="saveAddress" name="saveAddress" checked>
+                                        Save this address for future orders
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button type="button" class="btn-back" onclick="window.location.href='cart.html'">
+                                <i class="fas fa-arrow-left"></i> Back to Cart
+                            </button>
+                            <button type="button" class="btn-place-order" id="continueToPayment">
+                                Continue to Payment <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Payment Method -->
+                    <div id="step2" class="checkout-step">
+                        <div class="form-section">
+                            <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                            
+                            <div class="payment-methods">
+                                <div class="payment-method" data-method="card">
+                                    <input type="radio" name="paymentMethod" value="card" id="cardPayment">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="payment-details">
+                                        <h4>Credit/Debit Card</h4>
+                                        <p>Visa, MasterCard, RuPay, American Express</p>
+                                    </div>
+                                </div>
+
+                                <div class="payment-method" data-method="upi">
+                                    <input type="radio" name="paymentMethod" value="upi" id="upiPayment">
+                                    <div class="payment-icon">
+                                        <i class="fab fa-google-pay"></i>
+                                    </div>
+                                    <div class="payment-details">
+                                        <h4>UPI Payment</h4>
+                                        <p>Google Pay, PhonePe, Paytm, BHIM</p>
+                                    </div>
+                                </div>
+
+                                <div class="payment-method" data-method="netbanking">
+                                    <input type="radio" name="paymentMethod" value="netbanking" id="netbankingPayment">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="payment-details">
+                                        <h4>Net Banking</h4>
+                                        <p>All major banks supported</p>
+                                    </div>
+                                </div>
+
+                                <div class="payment-method" data-method="cod">
+                                    <input type="radio" name="paymentMethod" value="cod" id="codPayment">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <div class="payment-details">
+                                        <h4>Cash on Delivery</h4>
+                                        <p>Pay when you receive your order</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Details Form -->
+                            <div class="card-details" id="cardDetails">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number *</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                    <div class="error-message">Please enter a valid card number</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cardName">Cardholder Name *</label>
+                                    <input type="text" id="cardName" name="cardName" placeholder="Name on card">
+                                    <div class="error-message">Please enter the cardholder name</div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiryDate">Expiry Date *</label>
+                                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                                        <div class="error-message">Please enter expiry date</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV *</label>
+                                        <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                                        <div class="error-message">Please enter CVV</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button type="button" class="btn-back" id="backToAddress">
+                                <i class="fas fa-arrow-left"></i> Back to Address
+                            </button>
+                            <button type="button" class="btn-place-order" id="continueToReview">
+                                Review Order <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Order Review -->
+                    <div id="step3" class="checkout-step">
+                        <div class="form-section">
+                            <h3><i class="fas fa-clipboard-check"></i> Order Review</h3>
+                            
+                            <div class="review-section">
+                                <h4>Shipping Address</h4>
+                                <div id="reviewAddress" class="review-content">
+                                    <!-- Address will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="review-section">
+                                <h4>Payment Method</h4>
+                                <div id="reviewPayment" class="review-content">
+                                    <!-- Payment method will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="review-section">
+                                <h4>Order Items</h4>
+                                <div id="reviewItems" class="review-content">
+                                    <!-- Order items will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button type="button" class="btn-back" id="backToPayment">
+                                <i class="fas fa-arrow-left"></i> Back to Payment
+                            </button>
+                            <button type="button" class="btn-place-order" id="placeOrderBtn">
+                                <i class="fas fa-lock"></i> Place Order Securely
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary" data-aos="fade-left">
+                    <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+                    
+                    <div class="order-items" id="orderItems">
+                        <!-- Order items will be populated here -->
+                    </div>
+
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">₹0</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Shipping:</span>
+                            <span id="shipping">Free</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax (18% GST):</span>
+                            <span id="tax">₹0</span>
+                        </div>
+                        <div class="total-row final">
+                            <span>Total:</span>
+                            <span id="total">₹0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Processing your order...</p>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for your purchase. Your order has been confirmed and will be processed shortly.</p>
+            <div class="order-id" id="orderIdDisplay">
+                Order ID: #ORD-123456789
+            </div>
+            <div class="success-actions">
+                <a href="track.html" class="btn-track-order">
+                    <i class="fas fa-truck"></i> Track Order
+                </a>
+                <a href="shop.html" class="btn-continue-shopping">
+                    <i class="fas fa-shopping-bag"></i> Continue Shopping
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ng.jpg" type="image/x-icon"> 
+    <title>Track Your Order - TimeCart</title>
+    <link rel="stylesheet" href="track.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <div id="app-container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="ng.jpg" alt="Time Express">
+                <span>TimeCart</span>
+            </div>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="repair-services.html" >Repair Services</a>
+                <a href="track.html" class="active">Track Order</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <!-- Cart and Mobile Menu (Always Visible) -->
+            <div class="nav-right">
+                <div class="nav-icons">
+                    <!-- <button id="cartBtn" class="icon-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button> -->
+                </div>
+                <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+
+    <div class="container">
+        <div class="header-image">
+            <img src="ship.avif" alt="Time Express">
+        </div>
+        <h1><i class="fas fa-search-location"></i> Track Your Order</h1>
+
+        <div class="search-section">
+            <h3>Search by Order Number</h3>
+            <div class="search-form">
+                <input type="text" id="orderNumber" placeholder="Enter Order Number (e.g., PK1234567890 or ORD-1234567890)" required>
+                <button onclick="trackOrder()">
+                    <i class="fas fa-search"></i> Track Order
+                </button>
+            </div>
+            <p class="search-hint">
+                <i class="fas fa-info-circle"></i> 
+                You can find your order number in the confirmation email or SMS
+            </p>
+        </div>
+
+        <div class="orders-section">
+            <h2><i class="fas fa-clipboard-list"></i> Your Recent Orders</h2>
+            <div class="order-tabs">
+                <button class="tab-btn active" onclick="showOrders('all')">All Orders</button>
+                <button class="tab-btn" onclick="showOrders('pickup')">Repair Pickup</button>
+                <button class="tab-btn" onclick="showOrders('store')">Store Visits</button>
+                <button class="tab-btn" onclick="showOrders('watch')">Watch Orders</button>
+            </div>
+
+            <div class="orders-list" id="ordersList">
+                <div style="text-align: center; padding: 40px;">
+                    <div class="spinner"></div>
+                    <p style="margin-top: 20px; color: #666;">Loading your orders...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-links">
+            <a href="index.html" class="nav-link">
+                <i class="fas fa-tools"></i> Schedule Repair
+            </a>
+            <a href="store-visit.html" class="nav-link">
+                <i class="fas fa-store"></i> Book Store Visit
+            </a>
+            <a href="shop.html" class="nav-link">
+                <i class="fas fa-shopping-bag"></i> Shop Watches
+            </a>
+            <a href="home.html" class="nav-link">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script type="module" src="track.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ng.jpg" type="image/x-icon"> 
+    <title>Watch Repair - Store Visit</title>
+    <link rel="stylesheet" href="storevisit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="ng.jpg" alt="Time Express">
+                <span>Time Express</span>
+            </div>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="repair-services.html" class="active">Repair Services</a>
+                <a href="track.html">Track Order</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <!-- Cart and Mobile Menu (Always Visible) -->
+            <div class="nav-right">
+                <div class="nav-icons">
+                    <button id="cartBtn" class="icon-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="header-image">
+            <img src="cartoon.webp" alt="Watch Repair">
+        </div>
+        <h1><i class="fas fa-store"></i> Store Visit Booking</h1>
+        
+        <div class="service-highlights">
+            <div class="highlight-item">
+                <i class="fas fa-truck"></i>
+                <span>Free Pickup & Delivery</span>
+            </div>
+            <div class="highlight-item">
+                <i class="fas fa-tools"></i>
+                <span>1-Year Warranty</span>
+            </div>
+            <div class="highlight-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>90 Days Warranty</span>
+            </div>
+            
+        </div>
+
+        <form id="appointmentForm">
+            <!-- Customer Details -->
+            <div class="form-section">
+                <h2><i class="fas fa-user"></i> Customer Details</h2>
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user-circle"></i> Full Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+            </div>
+
+            <!-- Watch Details -->
+            <div class="form-section">
+                <h2><i class="fas fa-watch"></i> Watch Details</h2>
+                <div class="form-group">
+                    <label for="brand"><i class="fas fa-tag"></i> Brand:</label>
+                    <input type="text" id="brand" required>
+                </div>
+                <div class="form-group">
+                    <label for="issue"><i class="fas fa-exclamation-circle"></i> Issue Description:</label>
+                    <textarea id="issue" required></textarea>
+                </div>
+            </div>
+
+            <!-- Service Selection -->
+            <div class="form-section">
+                <h2><i class="fas fa-tools"></i> Service Type</h2>
+                <div class="form-group">
+                    <select id="service" required>
+                        <option value="">Select Service</option>
+                        <option value="battery">Battery Replacement - ₹200</option>
+                        <option value="full">Full Service - ₹500</option>
+                        <option value="glass">Glass Replacement - ₹150</option>
+                        <option value="Nothing">Don't Know - ₹(As Per Watch Condition)</option>
+                    </select>
+                    <h5>Note: Charges may increase as per watch type</h5>
+                </div>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="express">
+                    <label for="express"><i class="fas fa-bolt"></i> Express Service (+₹100)</label>
+                </div>
+            </div>
+
+            <!-- Store Visit Details -->
+            <div class="form-section">
+                <h2><i class="fas fa-calendar-alt"></i> Appointment Details</h2>
+                <div class="form-group">
+                    <label for="store"><i class="fas fa-store-alt"></i> Select Store:</label>
+                    <select id="store" required>
+                        <option value="main">Main Branch - Himayala Time Center</option>
+                        <option value="north">North Branch - Metro Mall</option>
+                        <option value="south">South Branch - Plaza Square</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date"><i class="fas fa-calendar"></i> Preferred Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time"><i class="fas fa-clock"></i> Preferred Time:</label>
+                    <select id="time" required>
+                        <option value="10">10:00 AM</option>
+                        <option value="11">11:00 AM</option>
+                        <option value="12">12:00 PM</option>
+                        <option value="14">2:00 PM</option>
+                        <option value="15">3:00 PM</option>
+                        <option value="16">4:00 PM</option>
+                        <option value="17">5:00 PM</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group checkbox">
+                <input type="checkbox" id="terms" required>
+                <label for="terms"><i class="fas fa-check-circle"></i> I agree to the terms and conditions</label>
+            </div>
+
+            <button type="submit"><i class="fas fa-calendar-check"></i> Book Appointment</button>
+        </form>
+
+        <div class="store-features">
+            <div class="feature">
+                <i class="fas fa-diagnoses"></i>
+                <h3>Free Diagnosis</h3>
+                <p>Expert evaluation</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Best Price</h3>
+                <p>Competitive pricing</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-certificate"></i>
+                <h3>Certified</h3>
+                <p>Expert technicians</p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="storevisit.js"></script>
+
+</body>
+</html>
